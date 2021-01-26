@@ -1,0 +1,16 @@
+.center-absolute{
+	display: flex;
+	flex-direction: column;
+    	justify-content: center;
+    	align-items: center;
+    	height: 100%;
+}
+
+input{
+	width: 80px;
+	text-align: center;
+}
+
+.center-absolute img{
+	width: 300px;
+}
