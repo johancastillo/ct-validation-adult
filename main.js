@@ -21,23 +21,27 @@ function calculateAge(birthday) {
 
 
 // OnChange
-dayEl.addEventListener('change', e => day = e.target.value )
-mounthEl.addEventListener('change', e => mounth = e.target.value )
-yearEl.addEventListener('change', e => year = e.target.value )
+dayEl.addEventListener('change', e => day = e.target.value)
+mounthEl.addEventListener('change', e => mounth = e.target.value)
+yearEl.addEventListener('change', e => year = e.target.value)
 
 
 // Event click
 btnSend.addEventListener('click', () => {
 
-    let age = calculateAge([day, mounth, year]);
-    
-    if(age >= 18){
-        sessionStorage.setItem('adult', true)
-        location.href = "https://compralotodo.com/categoria-producto/licores/"
+    if (year && day) {
+        let age = calculateAge([day, mounth, year]);
+
+        if (age >= 18) {
+            sessionStorage.setItem('adult', true)
+            location.href = "https://compralotodo.com/categoria-producto/licores/"
+        } else {
+            message.textContent = "No puedes ver el contenido porque no eres mayor de edad."
+        }
     }else{
-        message.textContent = "No puedes ver el contenido porque no eres mayor de edad."
+        message.textContent = "Campos vacíos"
     }
 })
 
 // Back
-btnBack.addEventListener('click', () => history.back() )
+btnBack.addEventListener('click', () => history.back())
