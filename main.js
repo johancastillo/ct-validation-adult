@@ -32,3 +32,6 @@ btnSend.addEventListener('click', () => {
         message.textContent = "No puedes ver el contenido porque no eres mayor de edad."
     }
 })
+
+// Back
+btnBack.addEventListener('click', () => history.back() )
