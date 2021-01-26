@@ -3,9 +3,13 @@ let btnBack = document.getElementById("btn-back")
 
 let message = document.getElementById('message')
 
-let day = document.getElementById("day")
-let mounth = document.getElementById("mounth")
-let year = document.getElementById("year")
+let dayEl = document.getElementById("day")
+let mounthEl = document.getElementById("mounth")
+let yearEl = document.getElementById("year")
+
+let day = dayEl.value
+let mounth = mounthEl.value
+let year = yearEl.value
 
 // Calcular edad
 function calculateAge(birthday) {
@@ -16,12 +20,14 @@ function calculateAge(birthday) {
 }
 
 
+// OnChange
+dayEl.addEventListener('change', e => day = e.target.value )
+mounthEl.addEventListener('change', e => mounth = e.target.value )
+yearEl.addEventListener('change', e => year = e.target.value )
+
 
 // Event click
 btnSend.addEventListener('click', () => {
-    day = day.value
-    mounth = mounth.value
-    year = year.value
 
     let age = calculateAge([day, mounth, year]);
     

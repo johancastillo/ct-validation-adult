@@ -1,5 +1,12 @@
 <html>
 	<head>
+		<!-- Fast Validation -->
+		<script>
+			let adult = sessionStorage.getItem('adult')
+			if(adult) location.href = "https://compralotodo.com/categoria-producto/licores/"
+		</script>
+
+		
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -8,11 +15,6 @@
 	
 		<link rel="stylesheet" href="./styles.css">
 
-		<!-- Fast Validation -->
-		<script>
-			let adult = sessionStorage.getItem('adult')
-			if(adult) location.href = "https://compralotodo.com/categoria-producto/licores/"
-		</script>
 	</head>
 
 	<body>	
