@@ -63,6 +63,7 @@ btnSend.addEventListener('click', () => {
         
                 if (age >= 18) {
                     sessionStorage.setItem('adult', true)
+                    message.textContent = ""
                     location.href = "https://compralotodo.com/categoria-producto/licores/"
                 } else {
                     message.textContent = "No puedes ver el contenido porque no eres mayor de edad."
