@@ -12,8 +12,21 @@ let mounth = parseInt(mounthEl.value)
 let year = parseInt(yearEl.value)
 var anoActual = (new Date()).getFullYear();
 
-let fecha
 
+dayValidation = {
+    01: 31,
+    02: 29,
+    03: 31,
+    04: 30,
+    05: 31,
+    06: 30,
+    07: 31,
+    08: 31,
+    09: 30,
+    10: 31,
+    11: 30,
+    12: 31,
+}
 
 // Calcular edad
 function calculateAge(birthday) {
@@ -27,39 +40,36 @@ function calculateAge(birthday) {
 // OnChange
 dayEl.addEventListener('change', e => {
     day = e.target.value
-    
-    // Validar si la feche es real
-    fecha = new Date(year, (mounth -1), day)
 })
 
 mounthEl.addEventListener('change', e => {
     mounth = e.target.value
-    // Validar si la feche es real
-    fecha = new Date(year, (mounth -1), day)
 })
 
 yearEl.addEventListener('change', e => {
     year = e.target.value
-    // Validar si la feche es real
-    fecha = new Date(year, (mounth -1), day)
 })
 
 
 // Event click
 btnSend.addEventListener('click', () => {
 
-    if(!(year > anoActual) && !isNaN(year) && year != false && year == 0){
-        if (year && day) {
-            let age = calculateAge([day, mounth, year]);
-    
-            if (age >= 18) {
-                sessionStorage.setItem('adult', true)
-                location.href = "https://compralotodo.com/categoria-producto/licores/"
-            } else {
-                message.textContent = "No puedes ver el contenido porque no eres mayor de edad."
+    if(year <= anoActual && !isNaN(year) && year !== 0){
+        if(day <= dayValidation[mounth]){
+            if (year && day) {
+                let age = calculateAge([day, mounth, year]);
+        
+                if (age >= 18) {
+                    sessionStorage.setItem('adult', true)
+                    location.href = "https://compralotodo.com/categoria-producto/licores/"
+                } else {
+                    message.textContent = "No puedes ver el contenido porque no eres mayor de edad."
+                }
+            }else{
+                message.textContent = "Campos vacíos"
             }
         }else{
-            message.textContent = "Campos vacíos"
+            message.textContent = "No es un día válido"
         }
     }else{
         message.textContent = "El año no es válido."
