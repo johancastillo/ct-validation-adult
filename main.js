@@ -7,9 +7,9 @@ let dayEl = document.getElementById("day")
 let mounthEl = document.getElementById("mounth")
 let yearEl = document.getElementById("year")
 
-let day = parseInt(dayEl.value)
-let mounth = parseInt(mounthEl.value)
-let year = parseInt(yearEl.value)
+let day = parseInt(dayEl.value) * 1
+let mounth = parseInt(mounthEl.value) * 1
+let year = parseInt(yearEl.value) * 1
 var anoActual = (new Date()).getFullYear();
 
 
