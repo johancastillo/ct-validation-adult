@@ -51,12 +51,14 @@ yearEl.addEventListener('change', e => {
 })
 
 
+// 
+
 // Event click
 btnSend.addEventListener('click', () => {
 
-    if(year <= anoActual && !isNaN(year) && year !== 0){
+    if(year && day){
         if(day <= dayValidation[mounth]){
-            if (year && day) {
+            if (year <= anoActual && !isNaN(year) && year !== 0) {
                 let age = calculateAge([day, mounth, year]);
         
                 if (age >= 18) {
@@ -66,13 +68,13 @@ btnSend.addEventListener('click', () => {
                     message.textContent = "No puedes ver el contenido porque no eres mayor de edad."
                 }
             }else{
-                message.textContent = "Campos vacíos"
+                message.textContent = "El año no es válido."
             }
         }else{
             message.textContent = "No es un día válido"
         }
     }else{
-        message.textContent = "El año no es válido."
+        message.textContent = "Campos vacíos."
     }
 })
 
