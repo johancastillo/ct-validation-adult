@@ -57,8 +57,8 @@ yearEl.addEventListener('change', e => {
 btnSend.addEventListener('click', () => {
 
     if(year && day){
-        if(day <= dayValidation[mounth]){
-            if (year <= anoActual && !isNaN(year) && year !== 0) {
+        if(day <= dayValidation[mounth] && day >= 1){
+            if (year <= anoActual && !isNaN(year) && year !== 0 && year > 1940) {
                 let age = calculateAge([day, mounth, year]);
         
                 if (age >= 18) {
